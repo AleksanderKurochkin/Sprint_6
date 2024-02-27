@@ -15,10 +15,10 @@ class Data:
     ADDRESS = 'Москва Широкая'
     METRO = 'Медведково'
     TELEPHONE = '89091112233'
-    #DATA = '01.03.2024'
     COMMENT = 'До квартиры'
 
 class Url:
     URL_PAGE_MAIN = "https://qa-scooter.praktikum-services.ru/"
     URL_PAGE_DZEN = "https://dzen.ru/?yredirect=true"
+    URL_PAGE_ORDER = "https://qa-scooter.praktikum-services.ru/order"
 

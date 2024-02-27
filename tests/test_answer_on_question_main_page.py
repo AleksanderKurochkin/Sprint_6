@@ -22,9 +22,4 @@ class TestMainPage:
     def test_answer_on_question_main_page(self, browser_firefox, q_nam, expected_result):
         main_page = MainPage(browser_firefox)
         main_page.open_main_page()
-
-        result = main_page.click_to_question_and_get_answer(
-            MainPageLocators.QUESTION,
-            MainPageLocators.ANSWER, q_nam)
-
-        assert main_page.check_answer(result, expected_result)
+        assert main_page.check_answer(main_page.get_answer(q_nam), expected_result)
