@@ -3,6 +3,7 @@ from locators.page_order_scooter_locators import PageOrderScooterLocators
 from data import Data, Url
 import allure
 
+
 class PageOrderScooter(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
@@ -29,7 +30,18 @@ class PageOrderScooter(BasePage):
     def open_order_page(self):
         self.open_page(Url.URL_PAGE_ORDER)
 
+    @allure.step('Нажимаем на кнопку Далее')
+    def click_on_element_button_forth(self):
+        self.click_on_element(PageOrderScooterLocators.BUTTON_FORTH)
 
+    @allure.step('Нажимаем на кнопку Заказать')
+    def click_on_element_button_order(self):
+        self.click_on_element(PageOrderScooterLocators.BUTTON_ORDER)
 
+    @allure.step('Нажимаем на кнопку Да')
+    def click_on_element_button_yes(self):
+        self.click_on_element(PageOrderScooterLocators.BUTTON_YES)
 
-
+    @allure.step('Смотрим что появилась кнопка "Посмотреть статус"')
+    def get_text_from_element_button_status(self):
+        return self.get_text_from_element(PageOrderScooterLocators.BUTTON_STATUS) == "Посмотреть статус"

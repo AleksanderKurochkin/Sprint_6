@@ -1,12 +1,13 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
+import allure
+
 
 class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
-
 
     def find_element_with_wait(self, locator):
         WebDriverWait(self.driver, 20).until(
@@ -32,21 +33,16 @@ class BasePage:
 
     def url_with_wait(self, url):
         WebDriverWait(self.driver, 10).until(EC.url_to_be(url))
+        return url
 
+    @allure.step('Открываем новую вкладку и переключаемся на нее')
     def open_new_tab(self):
         tabs = self.driver.window_handles
-        self.driver.switch_to.window(tabs[1])
+        self.driver.switch_to.window(tabs[-1])
 
     def open_page(self, url):
         self.driver.get(url)
 
-
-
-
-
-
-
-
-
-
-
+    @allure.step('Проверяем соответствует ли полученный URL и URL страницы')
+    def check_url(self, actual_url, expected_url):
+        return actual_url == expected_url

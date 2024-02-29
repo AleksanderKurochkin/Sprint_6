@@ -3,6 +3,7 @@ from locators.header_page_order_locators import HeaderPageOrderLocators
 from pages.base_page import BasePage
 import allure
 
+
 class HeaderPagesOrder(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
@@ -19,4 +20,3 @@ class HeaderPagesOrder(BasePage):
         self.open_new_tab()
         self.url_with_wait(Url.URL_PAGE_DZEN)
         return self.get_current_url()
-
